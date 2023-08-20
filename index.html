@@ -42,7 +42,7 @@
             <div class="product-section pt-12">
                 <h1 class="font-semibold text-4xl mb-7">Kitchenware</h1>
                 <div class="flex gap-5">
-                    <div onclick="accessoriesOne()" class="card bg-base-100 shadow-xl p-6" id="accessories1">
+                    <div onclick="accessoriesOne(this)" class="card bg-base-100 shadow-xl p-6" id="accessories1">
                         <div class="flex w-60  py-8 justify-center bg-gray-100">
                             <img src="images/prod1.png" alt="Shoes" />
                         </div>
@@ -55,10 +55,10 @@
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                             </div>
                             <h2 id="item-1" class="card-title">K. Accessories</h2>
-                            <p class=" text-gray-500">39.00 TK</p>
+                            <p class=" text-gray-500"> <span>39.00</span> TK</p>
                         </div>
                     </div>
-                    <div class="card bg-base-100 shadow-xl p-6" id="accessories2">
+                    <div onclick="accessoriesTwo(this)" class="card bg-base-100 shadow-xl p-6" id="accessories2">
                         <div class="flex w-60  py-8 justify-center bg-gray-100">
                             <img src="images/prod2.png" alt="Shoes" />
                         </div>
@@ -70,11 +70,11 @@
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                             </div>
-                            <h2 class="card-title">K. Accessories</h2>
+                            <h2 id="item-2" class="card-title">K. Accessories</h2>
                             <p class=" text-gray-500">25.00 TK</p>
                         </div>
                     </div>
-                    <div class="card bg-base-100 shadow-xl p-6" id ="cooker">
+                    <div class="card bg-base-100 shadow-xl p-6" id="cooker">
                         <div class="flex w-60  py-8 justify-center bg-gray-100">
                             <img src="images/prod3.png" alt="Shoes" />
                         </div>
@@ -86,7 +86,7 @@
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                             </div>
-                            <h2 class="card-title">Home Cooker</h2>
+                            <h2 id="item-3" class="card-title">Home Cooker</h2>
                             <p class=" text-gray-500">49.00 TK</p>
                         </div>
                     </div>
@@ -209,22 +209,42 @@
                 <div class="bg-white p-8 rounded-md">
                     <h5 class="text-xl font-semibold">Have coupon?</h5>
                     <div class="flex mt-2">
-                        <input id="input-coupon" class="py-2 w-32 border rounded-md" type="text" placeholder="Coupon code">
-                        <button id="apply-coupon" class="btn-secondary px-4 rounded-r-md text-white font-semibold py-2">Apply</button>
+                        <input id="input-coupon" class="pl-2 py-2 w-32 border rounded-md" type="text"
+                            placeholder="Coupon code">
+
+                        <button onclick="btnCoupn()" id="apply-coupon-btn"
+                            class="bg-pink-500 px-4 rounded-r-md text-white font-semibold py-2" disabled>Apply</button>
                     </div>
                 </div>
                 <div class="mt-8">
-                    <div class="bg-white text-xl" id="selected-items">
+                    <div class="bg-white text-xl">
+                        <ol class="list-decimal list-inside" id="selected-items">
 
-
+                        </ol>
                     </div>
                     <hr>
                     <div class="bg-white relative space-y-3 px-3 py-6 rounded-md">
-                        <h4 class="font-semibold text-xl">Total price: <span class="font-normal">00</span> Tk</h4>
-                        <h4 class="font-semibold text-xl">Discount: <span class="font-normal">00</span> Tk</h4>
-                        <h4 class="font-semibold text-xl">Total: <span class="font-normal">00</span> Tk</h4>
+                        <h4 class="font-semibold text-xl">Total price: <span class="font-normal"
+                                id="total-price">00</span> Tk</h4>
+                        <h4 class="font-semibold text-xl">Discount: <span class="font-normal" id="discount">00</span> Tk
+                        </h4>
+                        <h4 class="font-semibold text-xl">Total: <span class="font-normal" id="total">00</span> Tk</h4>
                         <hr class="my-5 pb-6">
-                        <button id="purchase" class="btn-secondary px-12 text-white rounded-md py-2 ml-4">Make Purchase</button>
+                        <!-- <button id="purchase" class="btn-secondary px-12 text-white rounded-md py-2 ml-4" disabled>Make Purchase</button> -->
+
+                        <!-- Open the modal using ID.showModal() method -->
+                        <button id="purchase" class="btn btn-secondary px-12 text-white rounded-md py-2 ml-4" disabled onclick="my_modal_5.showModal()">Make Purchase</button>
+                        <dialog id="my_modal_5" class="modal sm:modal-middle">
+                            <form method="dialog" class="modal-box">
+                                <img src="images/congo.png" alt="">
+                                <h3 class="font-bold text-lg">Congratulations</h3>
+                                <p class="py-4">Your Purchase the product</p>
+                                <div class="modal-action">
+                                    <!-- if there is a button in form, it will close the modal -->
+                                    <button class="btn">Go Home</button>
+                                </div>
+                            </form>
+                        </dialog>
                     </div>
 
                 </div>
