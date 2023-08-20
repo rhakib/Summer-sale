@@ -18,7 +18,7 @@ function itemsPriceTotal(previousPrice, priceAmount) {
 
     totalPrice = total + priceAmount;
 
-    previousTotal.innerText = totalPrice;
+    previousTotal.innerText = totalPrice.toFixed(2);
 
     const totalAmount = document.getElementById('total');
     totalAmount.innerText = totalPrice;
@@ -26,6 +26,7 @@ function itemsPriceTotal(previousPrice, priceAmount) {
     const applyBtn = document.getElementById('apply-coupon-btn');
     if (totalPrice >= 200) {
         applyBtn.removeAttribute('disabled');
+        applyBtn.classList.add('bg-pink-500');
     
     }
     else {
@@ -34,20 +35,12 @@ function itemsPriceTotal(previousPrice, priceAmount) {
 
     const purchaseBtn = document.getElementById('purchase');
     if (totalPrice > 0) {
-        purchaseBtn.removeAttribute('disabled' );
-        
-        
-    
+        purchaseBtn.removeAttribute('disabled' );             
     }
     else {
         purchaseBtn.setAttribute('disabled', true);
-        
-
     }
-
 }
-
-// btnCoupn()
 
 // item list 
 let totalPrice = 0;
@@ -78,7 +71,6 @@ function accessoriesTwo(event) {
     const priceAmount = parseFloat(priceString);
 
     itemsPriceTotal('total-price', priceAmount)
-
 }
 
 document.getElementById('apply-coupon-btn').addEventListener('click', function () {
@@ -86,17 +78,18 @@ document.getElementById('apply-coupon-btn').addEventListener('click', function (
     const inputCouponField = inputCoupon.value;
     console.log(inputCouponField);
 
-
     if (inputCouponField === 'SELL200') {
 
         const discountAmount = totalPrice * 20 / 100;
         const discountField = document.getElementById('discount');
-        discountField.innerText = discountAmount;
+        discountField.innerText = discountAmount.toFixed(2);
 
         const totalAmount = document.getElementById('total');
-        totalAmount.innerText = totalPrice - discountAmount;
-
+        totalAmount.innerText = (totalPrice - discountAmount).toFixed(2);    
     }
-    
-
 })
+
+function goHomeBtn() {
+     location.reload();
+}
+
