@@ -28,7 +28,7 @@ function itemsPriceTotal(previousPrice, priceAmount) {
     const applyBtn = document.getElementById('apply-coupon-btn');
     if (totalPrice >= 200) {
         applyBtn.removeAttribute('disabled');
-        applyBtn.classList.add('bg-pink-500');
+        applyBtn.classList.add('btn-secondary');
     
     }
     else {
@@ -134,7 +134,9 @@ function flexibleSofa(event) {
 document.getElementById('apply-coupon-btn').addEventListener('click', function () {
     const inputCoupon = document.getElementById('input-coupon');
     const inputCouponField = inputCoupon.value;
-    console.log(inputCouponField);
+    inputCoupon.value = '';
+
+    
 
     if (inputCouponField === 'SELL200') {
 
@@ -144,6 +146,9 @@ document.getElementById('apply-coupon-btn').addEventListener('click', function (
 
         const totalAmount = document.getElementById('total');
         totalAmount.innerText = (totalPrice - discountAmount).toFixed(2);    
+    }
+    else {
+        alert('please provide a valid promo code')
     }
 })
 
