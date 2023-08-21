@@ -3,14 +3,16 @@
 function getItem(name) {
     const itemName = document.getElementById(name);
     const itemText = itemName.innerText;
-    return itemText;
+    const li = document.createElement('li');
+    li.innerText = itemText;
+
+    const itemContainer = document.getElementById('selected-items');
+    itemContainer.appendChild(li);
+    // return itemText;
+
+
 
 }
-function cartItems(cartId) {
-    const itemsCart = document.getElementById(cartId);
-    return itemsCart;
-}
-
 function itemsPriceTotal(previousPrice, priceAmount) {
     const previousTotal = document.getElementById(previousPrice);
     const previousTotalString = previousTotal.innerText;
@@ -45,12 +47,7 @@ function itemsPriceTotal(previousPrice, priceAmount) {
 // item list 
 let totalPrice = 0;
 function accessoriesOne(event) {
-    const item1 = getItem('item-1');
-    const li = document.createElement('li');
-    li.innerText = item1;
-
-    const itemContainer = cartItems('selected-items');
-    itemContainer.appendChild(li);
+    getItem('item-1');
 
     const priceString = event.childNodes[3].childNodes[5].innerText.split(" ")[0];
     const priceAmount = parseFloat(priceString);
@@ -60,18 +57,79 @@ function accessoriesOne(event) {
 
 function accessoriesTwo(event) {
 
-    const item1 = getItem('item-2');
-    const li = document.createElement('li');
-    li.innerText = item1;
-
-    const itemContainer = cartItems('selected-items');
-    itemContainer.appendChild(li);
+    getItem('item-2');
 
     const priceString = event.childNodes[3].childNodes[5].innerText.split(" ")[0];
     const priceAmount = parseFloat(priceString);
 
     itemsPriceTotal('total-price', priceAmount)
 }
+function homeCooker(event) {
+
+    getItem('item-3');
+
+    const priceString = event.childNodes[3].childNodes[5].innerText.split(" ")[0];
+    const priceAmount = parseFloat(priceString);
+
+    itemsPriceTotal('total-price', priceAmount)
+}
+function sportsCap(event) {
+
+    getItem('item-4');
+
+    const priceString = event.childNodes[3].childNodes[5].innerText.split(" ")[0];
+    const priceAmount = parseFloat(priceString);
+
+    itemsPriceTotal('total-price', priceAmount)
+}
+function jerseySet(event) {
+
+    getItem('item-5');
+
+    const priceString = event.childNodes[3].childNodes[5].innerText.split(" ")[0];
+    const priceAmount = parseFloat(priceString);
+
+    itemsPriceTotal('total-price', priceAmount)
+}
+function sportsCates(event) {
+
+    getItem('item-6');
+
+    const priceString = event.childNodes[3].childNodes[5].innerText.split(" ")[0];
+    const priceAmount = parseFloat(priceString);
+
+    itemsPriceTotal('total-price', priceAmount)
+}
+function relaxChair(event) {
+
+    getItem('item-7');
+
+    const priceString = event.childNodes[3].childNodes[5].innerText.split(" ")[0];
+    const priceAmount = parseFloat(priceString);
+
+    itemsPriceTotal('total-price', priceAmount)
+}
+function childrenPlay(event) {
+
+    getItem('item-8');
+
+    const priceString = event.childNodes[3].childNodes[5].innerText.split(" ")[0];
+    const priceAmount = parseFloat(priceString);
+
+    itemsPriceTotal('total-price', priceAmount)
+}
+function flexibleSofa(event) {
+
+    getItem('item-9');
+
+    const priceString = event.childNodes[3].childNodes[5].innerText.split(" ")[0];
+    const priceAmount = parseFloat(priceString);
+
+    itemsPriceTotal('total-price', priceAmount)
+}
+
+
+// cart items part  
 
 document.getElementById('apply-coupon-btn').addEventListener('click', function () {
     const inputCoupon = document.getElementById('input-coupon');
